@@ -1,6 +1,9 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
 from .forms import TickerForm
+from .tingo import get_data, get_price
+
 
 def index(request):
     if request.method == 'POST':
@@ -10,10 +13,11 @@ def index(request):
             return HttpResponseRedirect(ticker)
     else:
         form = TickerForm()
-    return render(request, 'index.html',{'form':form})
+    return render(request, 'index.html', {'form': form})
 
 
 def ticker(request, id):
-    context = {}
-    context['ticker'] = id
-    return render(request, 'ticker.html', context)
+    return render(request, 'ticker.html', {'ticker': id,
+                                           'meta': get_data(id),
+                                           'price': get_price(id)})
+
