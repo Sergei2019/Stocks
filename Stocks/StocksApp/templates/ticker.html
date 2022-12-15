@@ -4,11 +4,12 @@
 <div class="container text-center">
         <h2>{{ meta.name }} {{ ticker }}</h2>
         <p>Description: {{ meta.description }}</p>
+        <h3>Сегодняшняя цена для {{ ticker }}</h3>
         <table class="table text-center">
-            <tr><td>Price Open: {{ price.open }}</td></tr>
-            <tr><td>Price Low: {{ price.low }}</td></tr>
-            <tr><td>Price High: {{ price.high }}</td></tr>
-            <tr><td>Price Close: {{ price.close }}</td></tr>
+            <tr><td>Цена на момент открытия:</td><td></td><td>{{ price.open }}</td></tr>
+            <tr><td>Минимальная цена:</td><td></td><td>{{ price.low }}</td></tr>
+            <tr><td>Максимальная цена:</td><td></td><td>{{ price.high }}</td></tr>
+            <tr><td>Цена на момент закрытия:</td><td></td><td>{{ price.close }}</td></tr>
         </table>
 </div>
 {% endblock %}
