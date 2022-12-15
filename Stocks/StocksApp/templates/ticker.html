@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>
-            Ticker
-        </title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <h3>{{ meta.name }} {{ ticker }}</h3>
+{% extends "base.html" %}
+{% block title %} {{ ticker }} {% endblock %}
+{% block content %}
+<div class="container text-center">
+        <h2>{{ meta.name }} {{ ticker }}</h2>
         <p>Description: {{ meta.description }}</p>
-        <p>Price Open: {{ price.open }}</p>
-        <p>Price Low: {{ price.low }}</p>
-        <p>Price High: {{ price.high }}</p>
-        <p>Price Close: {{ price.close }}</p>
-
-    </body>
-</html>
+        <table class="table text-center">
+            <tr><td>Price Open: {{ price.open }}</td></tr>
+            <tr><td>Price Low: {{ price.low }}</td></tr>
+            <tr><td>Price High: {{ price.high }}</td></tr>
+            <tr><td>Price Close: {{ price.close }}</td></tr>
+        </table>
+</div>
+{% endblock %}
